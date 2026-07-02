@@ -1,0 +1,16 @@
+# Local build outputs
+/build*/
+/DerivedData/
+
+# Xcode user state
+*.xcuserstate
+xcuserdata/
+
+# macOS generated files
+.DS_Store
+
+# Signing/export outputs
+*.xcarchive
+*.dSYM
+*.app
+*.systemextension

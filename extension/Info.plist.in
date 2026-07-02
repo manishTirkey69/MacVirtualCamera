@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleDevelopmentRegion</key>
+  <string>en</string>
+  <key>CFBundleExecutable</key>
+  <string>${EXECUTABLE_NAME}</string>
+  <key>CFBundleIdentifier</key>
+  <string>${MAC_VIRTUAL_CAMERA_EXTENSION_ID}</string>
+  <key>CFBundleInfoDictionaryVersion</key>
+  <string>6.0</string>
+  <key>CFBundleName</key>
+  <string>MacVirtualCamera Camera Extension</string>
+  <key>CFBundlePackageType</key>
+  <string>SYSX</string>
+  <key>CFBundleShortVersionString</key>
+  <string>1.0</string>
+  <key>CFBundleVersion</key>
+  <string>1</string>
+  <key>CMIOExtension</key>
+  <dict>
+    <key>CMIOExtensionMachServiceName</key>
+    <string>$(TeamIdentifierPrefix)$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+  </dict>
+  <key>MacVirtualCameraDeviceUUID</key>
+  <string>${MAC_VIRTUAL_CAMERA_DEVICE_UUID}</string>
+  <key>MacVirtualCameraSourceUUID</key>
+  <string>${MAC_VIRTUAL_CAMERA_SOURCE_UUID}</string>
+  <key>MacVirtualCameraSinkUUID</key>
+  <string>${MAC_VIRTUAL_CAMERA_SINK_UUID}</string>
+</dict>
+</plist>
