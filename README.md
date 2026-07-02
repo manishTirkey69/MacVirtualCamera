@@ -15,22 +15,82 @@ This app does not require OBS to be installed or running. It uses:
 - Screen Recording permission for `MacVirtualCamera.app`
 - approval of the bundled Camera Extension in System Settings when macOS prompts for it
 
-## Build
+## Full Steps To Build And Run
+
+From the `obs-studio` repo root:
 
 ```sh
-cmake -S MacVirtualCamera -B build-mac-virtual-camera -G Xcode
-cmake --build build-mac-virtual-camera --config Debug
+cd /Users/manishtirkey/Documents/Github/obs-studio
 ```
 
-For a runnable build, sign with a valid Apple development team:
+1. Build with your Apple Developer Team ID.
+
+Replace `YOURTEAMID` with your real Apple Developer Team ID:
 
 ```sh
 cmake -S MacVirtualCamera -B build-mac-virtual-camera -G Xcode \
   -DMAC_VIRTUAL_CAMERA_DEVELOPMENT_TEAM=YOURTEAMID
+
 cmake --build build-mac-virtual-camera --config Debug
 ```
 
-System Extensions require signing and user approval. An unsigned build can compile for development checks, but it will not activate the camera extension.
+2. Run the app:
+
+```sh
+open build-mac-virtual-camera/Debug/MacVirtualCamera.app
+```
+
+3. Approve macOS prompts.
+
+macOS may ask you to approve:
+
+- the bundled Camera Extension
+- Screen Recording permission for `MacVirtualCamera.app`
+
+If you grant Screen Recording permission, quit and reopen the app:
+
+```sh
+open build-mac-virtual-camera/Debug/MacVirtualCamera.app
+```
+
+4. Start the virtual camera from the menu bar.
+
+Click `Mac VCam` in the macOS menu bar, then choose:
+
+```text
+Start Virtual Camera
+```
+
+The selected source is:
+
+```text
+Source Selection -> Screen
+```
+
+5. Select the camera in another app.
+
+Open Zoom, Google Meet, Teams, Discord, OBS, or another camera app and select:
+
+```text
+Mac Virtual Camera
+```
+
+6. Stop the virtual camera from the menu bar:
+
+```text
+Stop Virtual Camera
+```
+
+## Build Only
+
+Unsigned builds are useful for compiler checks, but macOS will not properly activate the camera system extension without valid signing and user approval:
+
+```sh
+cmake -S MacVirtualCamera -B build-mac-virtual-camera -G Xcode \
+  -DCMAKE_XCODE_ATTRIBUTE_CODE_SIGNING_ALLOWED=NO
+
+cmake --build build-mac-virtual-camera --config Debug
+```
 
 ## Runtime
 
